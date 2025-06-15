@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+    <title>Mangá Mania</title>
+    
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
+    
+    <link href="styles.css" rel="stylesheet" />
+    <link href="catalogo.css" rel="stylesheet" />
+    <link href="footer.css" rel="stylesheet" />
+</head>
+<body>
+
+    
+    <header>
+        <div class="logo-container">
+            <img alt="Logo with two cartoon cats" class="logo-img" src="img/2.png" />
+        </div>
+
+       <nav class="main-nav" id="main-nav"> 
+    <a href="#cards-container" class="nav-link">Home</a>
+    <a href="#catalogo" class="nav-link">Catálogo</a>
+    <a href="#quem-somos" class="nav-link">Sobre</a>
+    <a href="login.html" class="nav-link">Login</a>
+
+    <button id="darkModeToggle" aria-label="Alternar modo escuro" class="dark-mode-toggle">
+        <i class="fas fa-sun"></i>
+    </button>
+</nav>
+        <div class="header-right">
+            <div class="search-container">
+                <input type="search" class="search-input" id="manga-search-input" placeholder="Buscar mangás..." />
+                <button aria-label="Botão de busca" class="search-button"> 
+                </button>
+            </div>
+        </div>
+        <button class="hamburger-menu" id="hamburger-menu">
+            <i class="fas fa-bars"></i>
+        </button>
+    
+        <p id="nomePerfil"></p>
+        <img id="fotoPerfil" src="" alt="Foto de perfil" style="width: 60px; border-radius: 50%;">
+    
+
+<script type="module">
+  import { auth } from './firebase-init.js';
+  import { onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.9.1/firebase-auth.js";
+
+  onAuthStateChanged(auth, (user) => {
+    if (user) {
+      document.querySelector('#fotoPerfil').src = user.photoURL || 'default.png';
+      document.querySelector('#nomePerfil').innerText = user.displayName || 'Usuário';
+    } else {
+      window.location.href = "login.html"; // volta se não estiver logado
+    }
+  });
+</script>
+</header>
+
+   <main>
+  <div class="cards-container" id="cards-container">
+    <!-- Os cards com os botões “Saiba mais” e “Leia agora” serão inseridos aqui pelo JS -->
+  </div>
+  <button class="prevb" id="prevBtn1">❮</button>
+  <button class="nextb" id="nextBtn1">❯</button>
+</main>
+
+
+
+
+    <section id="catalogo">
+        <div class="catalogo-header">
+            <h2><span class="icon-novel"></span> Catálogo</h2>
+
+      <div class="filtro-container">
+    <button class="btn-filtros" id="toggleFiltro">Filtros</button>
+    <div class="filtro-dropdown" id="filtroDropdown">
+        <!-- Gêneros virão aqui -->
+        <div id="checkboxContainer"></div>
+        <button id="aplicarFiltro">Aplicar</button>
+    </div>
+</div>
+                </div>
+            </div>
+        </div>
+        <div class="catalogo-grid" id="manga-grid">
+            <div id="mangaList"></div>
+        </div>
+        <div class="paginacao" id="pagination-controls">
+        </div>
+    </section>
+
+    <section id="quem-somos">
+        <h2>Quem somos nós?</h2>
+        <p>
+            O Mangá Mania é um site dedicado a todos que curtem o universo dos mangás. Criamos este espaço para compartilhar novidades, resenhas, curiosidades e recomendações sobre os mais diversos títulos — dos clássicos às novas descobertas. Nosso objetivo é conectar fãs, informar e celebrar tudo o que envolve esse estilo único de contar histórias.
+        </p>
+
+        <div class="logo">
+            <img src="tela de login/1.png" alt="Mangá Mania Logo">
+            <h3>integrantes</h3>
+        </div>
+
+        <div class="integrantes">
+            <div class="membro">
+                <img src="img/analu.png" alt="Ana Luiza Bertarelli">
+                <p>Ana Luiza Bertarelli</p>
+            </div>
+            <div class="membro">
+                <img src="img/mimi.png" alt="Emily Rodrigues">
+                <p>Emily Rodrigues</p>
+            </div>
+            <div class="membro">
+                <img src="img/ju.png" alt="Juliana Dourado">
+                <p>Juliana Dourado</p>
+            </div>
+            <div class="membro">
+                <img src="img/micehlllll.png" alt="Michelly Moreira">
+                <p>Michelly Moreira</p>
+            </div>
+            <div class="membro">
+                <img src="img/samy.png" alt="Samyra Alves">
+                <p>Samyra Alves</p>
+            </div>
+
+           <div class="ultima-secao" >
+              <button class="prevbb" onclick="scrollToTop()" aria-label="Voltar ao topo">
+    <i class="fas fa-arrow-up"></i>
+</button>
+           </div>
+
+        </div>
+
+    </section>
+    <script src="script.js"></script>
+</body>
+</html>

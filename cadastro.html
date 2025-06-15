@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+    <title>Cadastro</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    />
+    <link rel="stylesheet" href="styles-login.css" />
+  </head>
+  <body>
+    <main class="container">
+      <section class="side">
+        <label for="cadastro-image-input">
+          <img src="1.png" alt="Imagem ilustrativa" 
+          
+          />
+        </label>
+
+        <p class="side-text">Cadastre-se já!</p>
+        <button id="darkModeToggle" aria-label="Alternar modo escuro" class="dark-mode-toggle">
+        <i class="fas fa-sun"></i>
+    </button>
+      </section>
+
+      <section class="form-side">
+
+
+        <form class="form" novalidate>
+          <label class="input-label">
+            <span class="icon"><i class="fas fa-user-tag"></i></span>
+            <input
+              class="input"
+              type="text"
+              name="usuario"
+              placeholder="Nome de usuário"
+              required
+            />
+          </label>
+
+          <label class="input-label">
+            <span class="icon"><i class="fas fa-envelope"></i></span>
+            <input
+              class="input"
+              type="email"
+              name="email"
+              placeholder="Digite seu email"
+              required
+            />
+          </label>
+
+          <label class="input-label">
+            <span class="icon"><i class="fas fa-lock"></i></span>
+            <input
+              class="input"
+              type="password"
+              name="senha"
+              placeholder="Crie sua senha"
+              required
+            />
+          </label>
+
+          <button type="submit" class="submit-btn" id="signup">Criar</button>
+        </form>
+
+        <p class="small-text">
+          Já tem uma conta? <a href="login.html">Faça login!</a>
+        </p>
+      </section>
+    </main>
+  <script type="module" src="cadastro.js"></script>
+  <script src="script-2.js"></script>
+  </body>
+  
+
+</html>

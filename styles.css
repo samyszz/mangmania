@@ -1,0 +1,461 @@
+main {
+  position: relative;
+}
+
+.prevb, .nextb {
+  /* --- Posicionamento e Camada --- */
+  position: absolute;
+  /* Ajusta a altura para alinhar com os cards, não com o <main> inteiro */
+  /* (1.5rem de padding do main + ~140px que é metade da altura da imagem do card) */
+  top: 165px; 
+  transform: translateY(-50%); /* Centraliza o botão nessa altura */
+  z-index: 10;
+
+  /* --- Aparência e Estilo (usando suas variáveis de cor) --- */
+  background-color: var(--card-button-bg);
+  color: var(--card-button-text);
+  width: 45px;
+  height: 45px;
+  border: 1px solid rgba(var(--logo-text-color-rgb), 0.2);
+  border-radius: 50%;
+  
+  /* --- Alinhamento do Ícone Interno --- */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  /* --- Tipografia e UX --- */
+  font-size: 1.5rem;
+  font-weight: bold;
+  cursor: pointer;
+  text-shadow: none;
+  
+  /* --- Efeitos de Transição --- */
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+/* Efeito ao passar o mouse */
+.prevb:hover, 
+.nextb:hover {
+  background-color: var(--header-bg);
+  color: var(--link-color);
+  transform: translateY(-50%) scale(1.1);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+/* Posição específica de cada botão */
+.prevb { left: 25px; } 
+.nextb { right: 25px; } 
+
+
+.prevbb {
+  /* --- Posicionamento Fixo e Responsivo --- */
+  position: fixed; /* Fixo na tela */
+  right: 25px;     /* A 25px da borda direita */
+  bottom: 25px;    /* A 25px da borda inferior */
+  z-index: 1000;   /* Garante que fique sobre todos os outros elementos */
+
+  /* --- Aparência e Estilo (usando suas variáveis) --- */
+  background-color: var(--header-bg);
+  color: var(--link-color);
+  width: 50px;
+  height: 50px;
+  border: none;
+  border-radius: 50%; /* Circular para um look moderno */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.25);
+
+  /* --- Alinhamento do Ícone --- */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+  /* --- Tipografia e UX --- */
+  font-size: 1.2rem;
+  cursor: pointer;
+
+  /* --- Efeitos de Transição --- */
+  transition: all 0.3s ease-out;
+}
+
+.prevbb:hover {
+  /* Efeito de brilho e leve "salto" */
+  filter: brightness(1.2);
+  transform: scale(1.1) translateY(-5px); 
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+
+
+/* IMPORTAÇÃO DA FONTE LOCAL: APENAS AQUI E NENHUM OUTRO LUGAR */
+@font-face {
+  font-family: "Dynapuff";
+  src: url("img/DynaPuff-VariableFont_wdth,wght.ttf")
+      format("truetype-variations"),
+    url("img/DynaPuff-VariableFont_wdth,wght.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  --background-color: #f3e9ff;
+  --text-color: black;
+  --header-bg: #bda6f7;
+  --logo-text-color: #bda6f7;
+  --link-color: white;
+  --card-bg: white;
+  --input-bg: white;
+  --input-text: black;
+  --card-button-bg: #d9cfff;
+  --card-button-text: #7a4fff;
+  --menu-mobile-bg: #8a42a1; /* Cor de fundo para o menu mobile */
+  --menu-mobile-link-color: white; /* Cor dos links no menu mobile */
+  --menu-mobile-hover-bg: #a16cd6; /* Cor de hover no menu mobile */
+  --logo-text-color-rgb: 189, 166, 247; /* RGB de #bda6f7 para uso em sombras*/
+}
+
+/* modo escuro bosta */
+body.dark-mode {
+  --background-color: #1e1e2f;
+  --text-color: white;
+  --header-bg: #5a449b;
+  --logo-text-color: #d6c3ff;
+  --link-color: #f5f5f5;
+  --card-bg: #302a4b;
+  --input-bg: #2e2e4d;
+  --input-text: white;
+  --card-button-bg: #4c3d70;
+  --card-button-text: #c6afff;
+  --menu-mobile-bg: #5a449b;
+  --menu-mobile-link-color: #f5f5f5;
+  --menu-mobile-hover-bg: #7a5bb9;
+  --logo-text-color-rgb: 214, 195, 255; /* RGB de #d6c3ff para dark mode */
+}
+
+*{
+   box-sizing: border-box;
+}
+img,
+.container,
+header,
+footer {
+  max-width: 100%;
+} 
+body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--background-color);
+  font-family: "Dynapuff"; /* Usa a fonte 'Dynapuff' que foi definida acima */
+  color: var(--text-color);
+  overflow-x: hidden;
+}
+
+/* SEU HEADER EXISTENTE - AJUSTES */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.75rem 2rem; /* Ajustei um pouco o padding para o hambúrguer caber melhor */
+  background-color: var(--header-bg);
+  color: var(--link-color);
+  position: sticky; /* ou fixed, dependendo do que você quer */
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000; /* Garante que o header fique por cima de outros elementos */
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* Adiciona uma sombra suave */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.5rem 1rem;
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+.dark-mode-toggle {
+    background: none;
+    border: none;
+    font-size: 1.2rem;
+    cursor: pointer;
+    color: inherit;
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-right: 1rem; /* ou mais, tipo 1.5rem */
+}
+
+.logo-img {
+  width: 85px;
+  height: 84px;
+  object-fit: contain;
+}
+
+.logo-text {
+  font-family: "Dynapuff";
+  font-size: 1.125rem;
+  color: var(--logo-text-color);
+  margin-top: -0.25rem;
+  user-select: none;
+}
+
+/* SEU NAV NORMAL (PARA DESKTOP) */
+.main-nav {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    padding: 1rem;
+}
+
+/* OCULTA O BOTÃO DE HAMBÚRGUER POR PADRÃO EM DESKTOP */
+.hamburger-menu {
+  display: none; 
+}
+
+nav a {
+  color: var(--link-color);
+  text-decoration: none;
+  text-shadow: 0 0 2px #fff;
+}
+
+nav a:hover,
+nav a:focus {
+  text-decoration: underline;
+}
+
+.search-container {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  max-width: 180 px;
+}
+
+.search-input {
+  padding: 0.5rem 1rem;
+  border: 1px solid var(--header-bg);
+  border-radius: 9999px;
+  background-color: var(--input-bg);
+  color: var(--input-text);
+  padding-right: 2.5rem; /* Espaço para o ícone de busca */
+  transition: all 0.3s ease;
+  padding-right: 2rem;
+  position: relative;
+}
+
+
+.search-input:focus {
+  outline: none;
+  border-color: var(--logo-text-color);
+  /* Usando a nova variável RGB para a sombra */
+  box-shadow: 0 0 0 3px rgba(var(--logo-text-color-rgb), 0.3); 
+}
+
+.search-button {
+  background: none;
+  border: none;
+  color: var(--input-text);
+  position: absolute;
+  right: 0.23rem;
+  
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  font-size: 1.1rem;
+}
+
+.search-input:focus {
+  outline: 2px solid #7a4fff;
+}
+
+/* NOVO: OCULTA O BOTÃO DE HAMBÚRGUER POR PADRÃO EM DESKTOP */
+.hamburger-menu {
+  display: none; 
+}
+main {
+  padding: 1.5rem 2rem;
+}
+
+.cards-container {
+  display: flex;
+  gap: 1.5rem;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  background-color: var(--background-color);
+}
+
+.cards-container::-webkit-scrollbar {
+  display: none;
+}
+.cards-container {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.card {
+  position: relative;
+  flex-shrink: 0;
+  width: 20rem;
+  border-radius: 0.5rem;
+  overflow: hidden;
+  background-color: var(--card-bg);
+  color: var(--text-color);
+}
+
+.card-img {
+  width: 100%;
+  height: 280px;
+  object-fit: cover;
+  border-radius: 0.5rem;
+  display: block;
+}
+
+.card-buttons {
+  position: absolute;
+  bottom: 0.75rem;
+  right: 0.75rem;
+  display: flex;
+  gap: 0.75rem;
+}
+
+.card-buttons button {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  background-color: var(--card-button-bg);
+  color: var(--card-button-text);
+  font-size: 0.75rem;
+  border: none;
+  border-radius: 9999px;
+  padding: 0.25rem 0.75rem;
+  cursor: pointer;
+  font-family: "Arial", sans-serif;
+}
+
+.card-buttons button i {
+  font-size: 0.85rem;
+}
+.search-container {
+  display: flex;
+  align-items: center;
+  margin-right: 1rem; /* espaço da lupa até o menu */
+}
+
+/* --- NOVO: ESTILOS RESPONSIVOS PARA MOBILE --- */
+/* --- ESTILOS RESPONSIVOS: MOBILE FIRST --- */
+
+@media (max-width: 768px) {
+  header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.75rem 1rem;
+    gap: 0.5rem;
+    flex-wrap: nowrap;
+  }
+  
+  .logo-container {
+    flex-shrink: 0;
+    margin: 0;
+  }
+
+  .logo-img {
+    width: 50px;
+    height: 50px;
+  }
+
+  .header-right {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 0.5rem;
+    flex: 1;
+  }
+
+  .search-container {
+    display: flex;
+    align-items: center;
+    position: relative;
+    flex: 1;
+    max-width: 100%;
+    margin: 0;
+  }
+
+  .search-input {
+    width: 100%;
+    padding: 0.4rem 0.8rem;
+    font-size: 0.9rem;
+    border-radius: 9999px;
+  }
+
+  .search-button {
+    position: absolute;
+    right: 0.6rem;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    color: var(--input-text);
+    cursor: pointer;
+    font-size: 1.1rem;
+    z-index: 2;
+  }
+
+  .hamburger-menu {
+    display: block;
+    background: none;
+    border: none;
+    color: var(--link-color);
+    font-size: 1.8rem;
+    cursor: pointer;
+    margin-left: 0.5rem;
+    z-index: 1002;
+  }
+
+  nav.main-nav {
+    display: none;
+    position: fixed;
+    top: 0;
+    right: -250px;
+    width: 250px;
+    height: 100vh;
+    background-color: var(--menu-mobile-bg);
+    flex-direction: column;
+    padding: 2rem 1.5rem;
+    box-shadow: -5px 0 15px rgba(0, 0, 0, 0.3);
+    transition: right 0.4s ease-in-out;
+    z-index: 1001;
+    align-items: center;
+  }
+  #fotoPerfil{
+    width: 40px;
+  }
+  #nomePerfil {
+     display: none;
+    position: fixed;
+    top: 0;
+    right: -250px;
+    width: 250px;
+    height: 100vh;
+    background-color: var(--menu-mobile-bg);
+    flex-direction: column;
+    padding: 2rem 1.5rem;
+    box-shadow: -5px 0 15px rgba(0, 0, 0, 0.3);
+    transition: right 0.4s ease-in-out;
+    z-index: 1001;
+    align-items: center;
+  }
+
+  nav.main-nav.active {
+    display: flex;
+    right: 0;
+  }
+}
