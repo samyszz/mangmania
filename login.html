@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+    <title>Login</title>
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+    <link href="styles-login.css" rel="stylesheet" />
+    <style>
+    #login-google{
+         background-color: var(--submit-bg);
+  color: white;
+  border: none;
+  border-radius: 30px;
+  padding: 0.6rem 2rem;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s ease;
+      }
+      #login-google:hover {
+  background-color: var(--submit-hover-bg);
+}
+    </style>
+  </head>
+  <body>
+    <main class="container">
+      <section class="side login-side">
+        <img
+          alt="Ilustração de dois gatos, um rosa e um azul, lendo um mangá roxo"
+          class="side-image"
+          src="2.png"
+        />
+        <p class="side-text login-text">Acesse sua conta</p>
+        <button id="darkModeToggle" aria-label="Alternar modo escuro" class="dark-mode-toggle">
+        <i class="fas fa-sun"></i>
+    </button>
+      </section>
+
+      <section class="form-side login-form">
+        <form class="form" novalidate>
+          <label class="input-label">
+            <span class="icon"><i class="fas fa-user"></i></span>
+            <input
+              class="input"
+              type="text"
+              name="usuarioEmail"
+              placeholder="Nome de usuário ou Email"
+              required
+            />
+          </label>
+          <label class="input-label">
+            <span class="icon"><i class="fas fa-lock"></i></span>
+            <input
+              class="input"
+              type="password"
+              name="senha"
+              placeholder="Senha"
+              required
+            />
+          </label>
+          <button class="btn submit-btn" type="submit" id="signin">
+            Login
+          </button>
+          <button id="login-google">Entrar com Google </button>
+        </form>
+        <p class="small-text">
+          Ainda não tem uma conta?
+          <a href="cadastro.html">Faça seu cadastro!</a>
+        </p>
+      </section>
+    </main>
+<script type="module" src="login.js"></script>
+<script src="script-2.js"></script>
+
+</script>
+  </body>
+</html>

@@ -1,0 +1,109 @@
+
+
+/* SEM @font-face OU @import AQUI! */
+@font-face {
+    font-family: 'Dynapuff';
+    src: url('img/DynaPuff-VariableFont_wdth,wght.ttf') format('truetype-variations'),
+         url('img/DynaPuff-VariableFont_wdth,wght.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+#quem-somos {
+    font-family: 'Dynapuff'; /* Usa a fonte 'Dynapuff' definida em styles.css */
+    background: #f7f0f8;
+    text-align: center;
+    padding: 50px 20px;
+    color: #fff;
+}
+
+#quem-somos h2 {
+    font-size: 2.8em;
+    color: #a16cd6;
+    text-shadow: 2px 2px #fff;
+    margin-bottom: 20px;
+}
+
+#quem-somos p {
+    font-size: 1.2em;
+    color: #333;
+    max-width: 800px;
+    margin: 0 auto 30px;
+    line-height: 1.6;
+    text-shadow: 1px 1px #fff;
+}
+
+.logo {
+    margin: 40px 0;
+}
+
+.logo img {
+    width: 130px;
+}
+
+.logo h3 {
+    font-size: 2em;
+    color: #a16cd6;
+    margin-top: 10px;
+    text-shadow: 1px 1px #fff;
+}
+
+.integrantes {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.membro {
+    font-size:20px;
+    text-align: center;
+}
+
+.membro img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    border: 5px solid #6e3ea8;
+    background: #fff;
+    padding: 5px;
+}
+
+.membro p {
+    margin-top: 10px;
+    font-weight: bold;
+    font-size: 1em;
+    color: #000;
+}
+
+body.dark-mode #quem-somos {
+    background: #2a2440;
+    color: #d6c3ff;
+    text-shadow: none;
+}
+
+body.dark-mode #quem-somos h2 {
+    color: #9e78ff;
+    text-shadow: none;
+}
+
+body.dark-mode #quem-somos p {
+    color: #ccc;
+    text-shadow: none;
+}
+
+body.dark-mode .logo h3 {
+    color: #bdaaff;
+    text-shadow: none;
+}
+
+body.dark-mode .membro p {
+    color: #eee;
+}
+
+body.dark-mode .membro img {
+    border-color: #9e78ff;
+    background: #3f3270;
+}
