@@ -1,7 +1,7 @@
 /* CORREÇÃO DO CAMINHO DA FONTE */
 @font-face {
     font-family: 'Dynapuff';
-    src: url('img/static/DynaPuff-Regular.ttf') format('truetype');
+    src: url("img/static/DynaPuff-Regular.ttf") format("truetype");
     font-weight: normal;
     font-style: normal;
     font-display: swap;
