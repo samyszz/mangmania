@@ -367,6 +367,8 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   };
 
+  ///comentario p ver se o commit vai
+
   const savedDarkMode = localStorage.getItem('darkMode');
   if (savedDarkMode === 'enabled') {
     applyTheme(true);

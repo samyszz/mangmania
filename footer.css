@@ -1,17 +1,14 @@
-
-
-/* SEM @font-face OU @import AQUI! */
+/* CORREÇÃO DO CAMINHO DA FONTE */
 @font-face {
     font-family: 'Dynapuff';
-    src: url('img/DynaPuff-VariableFont_wdth,wght.ttf') format('truetype-variations'),
-         url('img/DynaPuff-VariableFont_wdth,wght.ttf') format('truetype');
+    src: url('img/static/DynaPuff-Regular.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
-    font-display: swap;
+    font-display: swap;
 }
 
 #quem-somos {
-    font-family: 'Dynapuff'; /* Usa a fonte 'Dynapuff' definida em styles.css */
+    font-family: 'Dynapuff';
     background: #f7f0f8;
     text-align: center;
     padding: 50px 20px;

@@ -3,39 +3,27 @@ main {
 }
 
 .prevb, .nextb {
-  /* --- Posicionamento e Camada --- */
   position: absolute;
-  /* Ajusta a altura para alinhar com os cards, não com o <main> inteiro */
-  /* (1.5rem de padding do main + ~140px que é metade da altura da imagem do card) */
   top: 165px; 
-  transform: translateY(-50%); /* Centraliza o botão nessa altura */
+  transform: translateY(-50%);
   z-index: 10;
-
-  /* --- Aparência e Estilo (usando suas variáveis de cor) --- */
   background-color: var(--card-button-bg);
   color: var(--card-button-text);
   width: 45px;
   height: 45px;
   border: 1px solid rgba(var(--logo-text-color-rgb), 0.2);
   border-radius: 50%;
-  
-  /* --- Alinhamento do Ícone Interno --- */
   display: flex;
   align-items: center;
   justify-content: center;
-
-  /* --- Tipografia e UX --- */
   font-size: 1.5rem;
   font-weight: bold;
   cursor: pointer;
   text-shadow: none;
-  
-  /* --- Efeitos de Transição --- */
   transition: all 0.3s ease;
   box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 
-/* Efeito ao passar o mouse */
 .prevb:hover, 
 .nextb:hover {
   background-color: var(--header-bg);
@@ -44,55 +32,39 @@ main {
   box-shadow: 0 4px 10px rgba(0,0,0,0.2);
 }
 
-/* Posição específica de cada botão */
 .prevb { left: 25px; } 
 .nextb { right: 25px; } 
 
-
 .prevbb {
-  /* --- Posicionamento Fixo e Responsivo --- */
-  position: fixed; /* Fixo na tela */
-  right: 25px;     /* A 25px da borda direita */
-  bottom: 25px;    /* A 25px da borda inferior */
-  z-index: 1000;   /* Garante que fique sobre todos os outros elementos */
-
-  /* --- Aparência e Estilo (usando suas variáveis) --- */
+  position: fixed;
+  right: 25px;
+  bottom: 25px;
+  z-index: 1000;
   background-color: var(--header-bg);
   color: var(--link-color);
   width: 50px;
   height: 50px;
   border: none;
-  border-radius: 50%; /* Circular para um look moderno */
+  border-radius: 50%;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.25);
-
-  /* --- Alinhamento do Ícone --- */
   display: flex;
   align-items: center;
   justify-content: center;
-  
-  /* --- Tipografia e UX --- */
   font-size: 1.2rem;
   cursor: pointer;
-
-  /* --- Efeitos de Transição --- */
   transition: all 0.3s ease-out;
 }
 
 .prevbb:hover {
-  /* Efeito de brilho e leve "salto" */
   filter: brightness(1.2);
   transform: scale(1.1) translateY(-5px); 
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
 }
 
-
-
-/* IMPORTAÇÃO DA FONTE LOCAL: APENAS AQUI E NENHUM OUTRO LUGAR */
+/* CORREÇÃO DO CAMINHO DA FONTE */
 @font-face {
   font-family: "Dynapuff";
-  src: url("img/DynaPuff-VariableFont_wdth,wght.ttf")
-      format("truetype-variations"),
-    url("img/DynaPuff-VariableFont_wdth,wght.ttf") format("truetype");
+  src: url("img/static/DynaPuff-Regular.ttf") format("truetype");
   font-weight: normal;
   font-style: normal;
   font-display: swap;
@@ -109,13 +81,12 @@ main {
   --input-text: black;
   --card-button-bg: #d9cfff;
   --card-button-text: #7a4fff;
-  --menu-mobile-bg: #8a42a1; /* Cor de fundo para o menu mobile */
-  --menu-mobile-link-color: white; /* Cor dos links no menu mobile */
-  --menu-mobile-hover-bg: #a16cd6; /* Cor de hover no menu mobile */
-  --logo-text-color-rgb: 189, 166, 247; /* RGB de #bda6f7 para uso em sombras*/
+  --menu-mobile-bg: #8a42a1;
+  --menu-mobile-link-color: white;
+  --menu-mobile-hover-bg: #a16cd6;
+  --logo-text-color-rgb: 189, 166, 247;
 }
 
-/* modo escuro bosta */
 body.dark-mode {
   --background-color: #1e1e2f;
   --text-color: white;
@@ -130,7 +101,7 @@ body.dark-mode {
   --menu-mobile-bg: #5a449b;
   --menu-mobile-link-color: #f5f5f5;
   --menu-mobile-hover-bg: #7a5bb9;
-  --logo-text-color-rgb: 214, 195, 255; /* RGB de #d6c3ff para dark mode */
+  --logo-text-color-rgb: 214, 195, 255;
 }
 
 *{
@@ -146,25 +117,24 @@ body {
   margin: 0;
   padding: 0;
   background-color: var(--background-color);
-  font-family: "Dynapuff"; /* Usa a fonte 'Dynapuff' que foi definida acima */
+  font-family: "Dynapuff";
   color: var(--text-color);
   overflow-x: hidden;
 }
 
-/* SEU HEADER EXISTENTE - AJUSTES */
 header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0.75rem 2rem; /* Ajustei um pouco o padding para o hambúrguer caber melhor */
+  padding: 0.75rem 2rem;
   background-color: var(--header-bg);
   color: var(--link-color);
-  position: sticky; /* ou fixed, dependendo do que você quer */
+  position: sticky;
   top: 0;
   left: 0;
   width: 100%;
-  z-index: 1000; /* Garante que o header fique por cima de outros elementos */
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* Adiciona uma sombra suave */
+  z-index: 1000;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -189,7 +159,7 @@ header {
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  margin-right: 1rem; /* ou mais, tipo 1.5rem */
+  margin-right: 1rem;
 }
 
 .logo-img {
@@ -206,7 +176,6 @@ header {
   user-select: none;
 }
 
-/* SEU NAV NORMAL (PARA DESKTOP) */
 .main-nav {
     display: flex;
     flex-wrap: wrap;
@@ -216,7 +185,6 @@ header {
     padding: 1rem;
 }
 
-/* OCULTA O BOTÃO DE HAMBÚRGUER POR PADRÃO EM DESKTOP */
 .hamburger-menu {
   display: none; 
 }
@@ -245,7 +213,7 @@ nav a:focus {
   border-radius: 9999px;
   background-color: var(--input-bg);
   color: var(--input-text);
-  padding-right: 2.5rem; /* Espaço para o ícone de busca */
+  padding-right: 2.5rem;
   transition: all 0.3s ease;
   padding-right: 2rem;
   position: relative;
@@ -255,7 +223,6 @@ nav a:focus {
 .search-input:focus {
   outline: none;
   border-color: var(--logo-text-color);
-  /* Usando a nova variável RGB para a sombra */
   box-shadow: 0 0 0 3px rgba(var(--logo-text-color-rgb), 0.3); 
 }
 
@@ -265,7 +232,7 @@ nav a:focus {
   color: var(--input-text);
   position: absolute;
   right: 0.23rem;
-  
+
   top: 50%;
   transform: translateY(-50%);
   cursor: pointer;
@@ -276,7 +243,6 @@ nav a:focus {
   outline: 2px solid #7a4fff;
 }
 
-/* NOVO: OCULTA O BOTÃO DE HAMBÚRGUER POR PADRÃO EM DESKTOP */
 .hamburger-menu {
   display: none; 
 }
@@ -346,11 +312,8 @@ main {
 .search-container {
   display: flex;
   align-items: center;
-  margin-right: 1rem; /* espaço da lupa até o menu */
+  margin-right: 1rem;
 }
-
-/* --- NOVO: ESTILOS RESPONSIVOS PARA MOBILE --- */
-/* --- ESTILOS RESPONSIVOS: MOBILE FIRST --- */
 
 @media (max-width: 768px) {
   header {
@@ -361,7 +324,7 @@ main {
     gap: 0.5rem;
     flex-wrap: nowrap;
   }
-  
+
   .logo-container {
     flex-shrink: 0;
     margin: 0;
