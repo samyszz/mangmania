@@ -6,8 +6,7 @@ const btnNext = document.getElementById("nextBtn1");
 let currentIndex = 0;
 
 // --- MangaDex API Integration ---
-// CORREÇÃO: A URL base aponta para o nosso proxy da Vercel para evitar erro de CORS.
-const BASE_URL = '/api/mangadex';
+const BASE_URL = '/api/mangadex'; // CORREÇÃO
 const MANGA_LIMIT = 10;
 let currentPage = 1;
 let currentSearchQuery = '';
@@ -15,7 +14,7 @@ let currentFilters = [];
 
 async function fetchMangasFromAPI() {
   try {
-    // CORREÇÃO: A URL aqui agora usa a BASE_URL para funcionar com o proxy da Vercel.
+    // CORREÇÃO:
     const res = await fetch(
       `${BASE_URL}/manga?limit=10&availableTranslatedLanguage[]=pt-br&order[updatedAt]=desc&includes[]=cover_art`
     );
@@ -366,8 +365,6 @@ document.addEventListener('DOMContentLoaded', () => {
       iconElement.classList.add('fa-sun');
     }
   };
-
-  ///comentario p ver se o commit vai
 
   const savedDarkMode = localStorage.getItem('darkMode');
   if (savedDarkMode === 'enabled') {

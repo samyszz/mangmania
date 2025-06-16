@@ -14,7 +14,7 @@ document.querySelector('#signup').addEventListener('click', (e) => {
     })
     .then(() => {
       alert("Conta criada com sucesso!");
-      window.location.href = "./telainicial.html";
+      window.location.href = "./index.html";
     })
     .catch((error) => {
       alert("Erro no cadastro: " + error.message);

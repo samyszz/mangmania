@@ -8,7 +8,7 @@ document.querySelector("#signin").addEventListener("click", (e) => {
 
   signInWithEmailAndPassword(auth, email, senha)
     .then(() => {
-       window.location.href = "./telainicial.html";
+       window.location.href = "./index.html";
     })
     .catch((error) => {
       alert("Erro ao fazer login: " + error.message);
@@ -29,7 +29,7 @@ document.querySelector('#login-google').addEventListener('click', (e) => {
     .then((result) => {
       const user = result.user;
       // Redireciona pra página inicial
-      window.location.href = "telainicial.html";
+      window.location.href = "index.html";
     })
     .catch((error) => {
       console.error("Erro ao fazer login com Google:", error);
