@@ -5,10 +5,19 @@ const btnNext = document.getElementById("nextBtn1");
 
 let currentIndex = 0;
 
+// --- MangaDex API Integration ---
+// CORREÇÃO: A URL base aponta para o nosso proxy da Vercel para evitar erro de CORS.
+const BASE_URL = '/api/mangadex';
+const MANGA_LIMIT = 10;
+let currentPage = 1;
+let currentSearchQuery = '';
+let currentFilters = [];
+
 async function fetchMangasFromAPI() {
   try {
+    // CORREÇÃO: A URL aqui agora usa a BASE_URL para funcionar com o proxy da Vercel.
     const res = await fetch(
-      "https://api.mangadex.org/manga?limit=10&availableTranslatedLanguage[]=pt-br&order[updatedAt]=desc&includes[]=cover_art"
+      `${BASE_URL}/manga?limit=10&availableTranslatedLanguage[]=pt-br&order[updatedAt]=desc&includes[]=cover_art`
     );
     const data = await res.json();
     const mangas = data.data;
@@ -132,13 +141,6 @@ if (hamburgerMenu && mainNav) {
   });
 }
 
-/// --- MangaDex API Integration ---
-const BASE_URL = '/api/mangadex';
-const MANGA_LIMIT = 10;
-let currentPage = 1;
-let currentSearchQuery = '';
-let currentFilters = [];
-
 const mangaGrid = document.getElementById('manga-grid');
 const paginationControls = document.getElementById('pagination-controls');
 const searchInput = document.getElementById('manga-search-input');
@@ -146,7 +148,6 @@ const searchButton = document.querySelector('.search-button');
 
 const toggleFiltroBtn = document.getElementById('toggleFiltro');
 const filtroDropdown = document.getElementById('filtroDropdown');
-// <-- CORREÇÃO: Pegamos a referência do botão "Aplicar" que já existe no HTML.
 const aplicarFiltroBtn = document.getElementById('aplicarFiltro');
 
 let availableGenres = [];
@@ -165,13 +166,12 @@ async function fetchGenres() {
   }
 }
 
-// <-- CORREÇÃO: Função ajustada para popular apenas os checkboxes.
 async function populateGenreFilters() {
   availableGenres = await fetchGenres();
   const checkboxContainer = document.getElementById('checkboxContainer');
   
   if (!checkboxContainer) return;
-  checkboxContainer.innerHTML = ''; // Limpa apenas a área dos checkboxes
+  checkboxContainer.innerHTML = ''; 
 
   availableGenres.forEach(genre => {
     const genreName = genre.attributes.name.en || Object.values(genre.attributes.name)[0] || 'Gênero Desconhecido';
@@ -189,7 +189,6 @@ async function populateGenreFilters() {
   });
 }
 
-// <-- CORREÇÃO: Esta função agora será chamada pelo event listener correto.
 function handleApplyFilter() {
   currentFilters = [];
   filtroDropdown.querySelectorAll('input[type="checkbox"]:checked').forEach(checkbox => {
@@ -341,19 +340,17 @@ if (toggleFiltroBtn && filtroDropdown) {
   });
 }
 
-// <-- CORREÇÃO: Adicionando o listener ao botão "Aplicar" que pegamos do HTML.
 if (aplicarFiltroBtn) {
   aplicarFiltroBtn.addEventListener('click', handleApplyFilter);
 }
 
-// <-- CORREÇÃO: Centralizando toda a inicialização da página em um único local.
 document.addEventListener('DOMContentLoaded', () => {
   // 1. Lógica do Carrossel Inicial
   fetchMangasFromAPI();
 
   // 2. Lógica do Catálogo e Filtros
   loadManga();
-  populateGenreFilters(); // <-- CORREÇÃO: Chamando a função para criar os filtros.
+  populateGenreFilters();
 
   // 3. Lógica do Modo Escuro
   const darkModeToggle = document.getElementById('darkModeToggle');
@@ -388,5 +385,3 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 });
-
-// <-- CORREÇÃO: O bloco de código conflitante que estava aqui foi removido.
