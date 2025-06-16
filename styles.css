@@ -90,7 +90,7 @@ main {
 /* IMPORTAÇÃO DA FONTE LOCAL: APENAS AQUI E NENHUM OUTRO LUGAR */
 @font-face {
   font-family: "Dynapuff";
-  src: url("img/DynaPuff-VariableFont_wdth,wght.ttf")
+  src: url("img/static/DynaPuff-VariableFont_wdth,wght.ttf")
       format("truetype-variations"),
     url("img/DynaPuff-VariableFont_wdth,wght.ttf") format("truetype");
   font-weight: normal;
