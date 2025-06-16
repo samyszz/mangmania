@@ -3,7 +3,7 @@
 /* SEM @font-face OU @import AQUI! */
 @font-face {
     font-family: 'Dynapuff';
-    src: url('img/DynaPuff-VariableFont_wdth,wght.ttf') format('truetype-variations'),
+   src: url('img/static/DynaPuff-VariableFont_wdth,wght.ttf'),
          url('img/DynaPuff-VariableFont_wdth,wght.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
