@@ -1,5 +1,12 @@
 {
   "rewrites": [
-    { "source": "/", "destination": "/telainicial.html" }
+    {
+      "source": "/api/mangadex/:path*",
+      "destination": "https://api.mangadex.org/:path*"
+    },
+    { 
+      "source": "/", 
+      "destination": "/telainicial.html" 
+    }
   ]
 }
